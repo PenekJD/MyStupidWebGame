@@ -1,0 +1,41 @@
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>(_X_)</title>
+	<style>
+
+		/* Имена стилей */
+		.blue { background:#33f; }
+		.red { background:#f00;  }
+		.mocha { background:#ff8;  }
+
+	</style>
+	<script>
+
+		/*	Скрипт, который меняет имя класса Body	*/
+		function ClassChangeEpta(element) {
+			document.body.className = element.value;
+		}
+
+		function CheckShit() {
+			all_style = document.getElementsByTagName("style")[0].innerHTML+'';
+			SetClassInner = all_style.split(".blue")[1].split("}")[0];
+			all_style = all_style.replace(new RegExp(SetClassInner, 'gi'), "{ background:#000;");
+
+			document.getElementsByTagName("style")[0].innerHTML = all_style;
+		}
+
+	</script>
+</head>
+	<body>
+		<center>
+			<!-- в value надо забивать имена классов -->
+			<select onchange="ClassChangeEpta(this);">
+				<option value="blue">Синий</option>
+				<option value="red">Красный</option>
+				<option value="mocha">Моча</option>
+			</select>
+			<input value="CheckShit" onclick="CheckShit();" type="button">
+		</center>
+	</body>
+</html>
